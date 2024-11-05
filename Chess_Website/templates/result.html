@@ -1,0 +1,10 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<section class="result">
+    <h2>Predicted FEN Notation</h2>
+    <p>The predicted FEN notation for the uploaded image is:</p>
+    <h3>{{ predicted_fen }}</h3>
+    <a href="{{ url_for('index') }}" class="btn">Try Again</a>
+</section>
+{% endblock %}

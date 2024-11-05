@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chess Position Analyzer</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Chess Position Analyzer</h1>
+        
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <div class="flash-messages">
+                    {% for message in messages %}
+                        <div class="flash-message">
+                            <strong>Error:</strong> {{ message }}
+                        </div>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        {% endwith %}
+
+        <form class="upload-form" method="post" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="file">Select chess position image (PNG, JPG, or JPEG)</label>
+                <input type="file" id="file" name="file" accept=".jpg,.jpeg,.png" required>
+            </div>
+            <button type="submit" class="btn">Analyze Position</button>
+        </form>
+
+        <div id="preview-container" class="preview-container">
+            <p class="help-text">Image preview will appear here</p>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
